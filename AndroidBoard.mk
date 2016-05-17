@@ -12,5 +12,5 @@ $(shell mkdir -p $(TARGET_OUT_KEYLAYOUT); \
     cp -pf device/Lenovo/S650_ROW/keylayout/Generic.kl $(TARGET_OUT_KEYLAYOUT))
 
 # copy permissions overrides
-$(shell mkdir -p $(TARGET_OUT_KEYLAYOUT); \
+$(shell mkdir -p $(TARGET_OUT_ETC)/permissions; \
     cp -pf device/Lenovo/S650_ROW/configs/android.hardware.camera.xml $(TARGET_OUT_ETC)/permissions)
