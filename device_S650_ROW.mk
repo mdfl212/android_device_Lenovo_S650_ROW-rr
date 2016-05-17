@@ -200,7 +200,7 @@ PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
 # Remove unwanted packages
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES_OVERRIDES += \
     audio.primary.goldfish \
     camera.goldfish.jpeg \
     camera.goldfish \
