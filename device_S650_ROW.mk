@@ -149,6 +149,9 @@ PRODUCT_PACKAGES += \
     libfmmt6630 \
     libmtkplayer
 
+PRODUCT_PACKAGES += \
+    libgralloc_extra
+
 # GPS
 PRODUCT_PACKAGES += \
     YGPS
@@ -214,7 +217,7 @@ PRODUCT_PACKAGES_OVERRIDES += \
     vibrator.goldfish
 
 # Remove unwanted files
-    PRODUCT_COPY_FILES_OVERRIDES += \
+PRODUCT_COPY_FILES_OVERRIDES += \
     root/fstab.goldfish \
     root/fstab.ranchu \
     root/init.goldfish.rc \
