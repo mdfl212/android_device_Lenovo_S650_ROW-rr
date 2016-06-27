@@ -593,13 +593,13 @@ on boot
     chown radio system /sys/power/tuxonice
     chown radio system /sys/power/tuxonice/do_hibernate
     chmod 0770 /sys/power/tuxonice
-    chmod 0220 /sys/power/tuxonice/do_hibernate	
-	
+    chmod 0220 /sys/power/tuxonice/do_hibernate
+
     # FM Radio device node
     exec /system/bin/mknod /dev/fm c 193 0
     chmod 0777 /dev/fm
     chown system media /dev/fm
-	
+
 ## Thermal
   #change permissions on thermal devices
   chown root system /proc/mtktscpu/mtktscpu
@@ -866,6 +866,12 @@ service msensord /system/bin/msensord
     class main
     oneshot
 
+service s62xd /system/bin/s62xd
+    disabled
+    user compass
+    group system
+    class main
+
 service ami304d /system/bin/ami304d
     user system
     group system
@@ -873,10 +879,18 @@ service ami304d /system/bin/ami304d
     oneshot
 
 service memsicd /system/bin/memsicd
-     disabled
-     oneshot
+    disabled
+    oneshot
     user system
     group system
+    class main
+
+service memsicd3416x /system/bin/memsicd3416x
+    disabled
+    user system
+    group system
+    class main
+    oneshot
 
 service akmd8975 /system/bin/akmd8975
     disabled
@@ -902,6 +916,13 @@ service mc6420d /system/bin/mc6420d
     disabled
     user system
     group system
+    class main
+
+service qmc5983d /system/bin/qmc5983d
+    disabled
+    user system
+    group system
+    class main
 
 service orientationd /system/bin/orientationd
     disabled
@@ -948,7 +969,6 @@ service thermal_manager /system/bin/thermal_manager
 
 service battery_charger /charger
     class charger
-    critical
     seclabel u:r:healthd:s0
 #
 # Connectivity related services (Begin)

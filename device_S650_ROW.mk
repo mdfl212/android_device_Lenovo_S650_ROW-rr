@@ -100,7 +100,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
-    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
+    $(LOCAL_PATH)/configs/platform.xml:system/etc/permissions/platform.xml
 
 # Keylayout overrides
 PRODUCT_COPY_FILES_OVERRIDES += \
@@ -109,6 +110,10 @@ PRODUCT_COPY_FILES_OVERRIDES += \
 # Permissions overrides
 PRODUCT_COPY_FILES_OVERRIDES += \
     system/etc/permissions/android.hardware.camera.xml
+
+# Media codecs overrides
+PRODUCT_COPY_FILES_OVERRIDES += \
+    system/etc/media_codecs_google_video.xml
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -149,16 +154,16 @@ PRODUCT_PACKAGES += \
     libfmmt6630 \
     libmtkplayer
 
-PRODUCT_PACKAGES += \
-    libgralloc_extra
-
 # GPS
 PRODUCT_PACKAGES += \
     YGPS
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/platform.xml:system/etc/permissions/platform.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -212,6 +217,8 @@ PRODUCT_PACKAGES_OVERRIDES += \
     gps.goldfish \
     lights.goldfish \
     power.goldfish \
+    ResurrectionOTA \
+    ResurrectionStats \
     sensors.goldfish \
     sensors.ranchu \
     vibrator.goldfish
