@@ -55,10 +55,6 @@ PRODUCT_PACKAGES += \
 #    gsm0710muxd
 PRODUCT_PACKAGES += libmt6582
 
-# GPS
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.ril_class=MediaTekRIL
 
@@ -155,7 +151,11 @@ PRODUCT_PACKAGES += \
     libmtkplayer
 
 # GPS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
+
 PRODUCT_PACKAGES += \
+    gps.mt6582 \
     YGPS
 
 PRODUCT_COPY_FILES += \
