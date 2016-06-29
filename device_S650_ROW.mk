@@ -174,6 +174,10 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.service.debuggable=1 \
     persist.sys.usb.config=mtp
 
+# Set default player to AwesomePlayer
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.sys.media.use-awesome=true
+
 PRODUCT_PROPERTY_OVERRIDES := \
     ro.adb.secure=0 \
     ro.secure=0 \
