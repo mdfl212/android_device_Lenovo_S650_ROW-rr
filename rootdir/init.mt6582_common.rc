@@ -988,9 +988,9 @@ service conn_launcher /system/bin/logwrapper /system/bin/6620_launcher -p /syste
 #
 # Connectivity related services (End)
 #
-	
+
 service enableswap /system/bin/sh /enableswap.sh
     class core
-    oneshot	
+    oneshot
 
 

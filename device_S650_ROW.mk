@@ -174,11 +174,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.service.debuggable=1 \
     persist.sys.usb.config=mtp
 
-# Set default player to AwesomePlayer
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.sys.media.use-awesome=true
-
-PRODUCT_PROPERTY_OVERRIDES := \
     ro.adb.secure=0 \
     ro.secure=0 \
     ro.mediatek.version.release=ALPS.W10.24.p0 \
@@ -194,7 +190,11 @@ PRODUCT_PROPERTY_OVERRIDES := \
     persist.service.debuggable=1 \
     persist.mtk.wcn.combo.chipid=-1
 
-$(call inherit-product, build/target/product/full.mk)
+# Set default player to AwesomePlayer
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.media.use-awesome=true
+
+#$(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_S650_ROW
@@ -211,6 +211,19 @@ PRODUCT_PACKAGES += \
     librs_jni \
     com.android.future.usb.accessory
 
+# Remove unwanted files
+PRODUCT_COPY_FILES_OVERRIDES += \
+    root/fstab.goldfish \
+    root/fstab.ranchu \
+    root/init.goldfish.rc \
+    root/init.ranchu.rc \
+    root/ueventd.goldfish.rc \
+    root/ueventd.ranchu.rc \
+    recovery/root/fstab.goldfish \
+    recovery/root/fstab.ranchu \
+    recovery/root/ueventd.goldfish.rc \
+    recovery/root/ueventd.ranchu.rc
+
 # Remove unwanted packages
 PRODUCT_PACKAGES_OVERRIDES += \
     audio.primary.goldfish \
@@ -226,18 +239,5 @@ PRODUCT_PACKAGES_OVERRIDES += \
     sensors.goldfish \
     sensors.ranchu \
     vibrator.goldfish
-
-# Remove unwanted files
-PRODUCT_COPY_FILES_OVERRIDES += \
-    root/fstab.goldfish \
-    root/fstab.ranchu \
-    root/init.goldfish.rc \
-    root/init.ranchu.rc \
-    root/ueventd.goldfish.rc \
-    root/ueventd.ranchu.rc \
-    recovery/root/fstab.goldfish \
-    recovery/root/fstab.ranchu \
-    recovery/root/ueventd.goldfish.rc \
-    recovery/root/ueventd.ranchu.rc
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)

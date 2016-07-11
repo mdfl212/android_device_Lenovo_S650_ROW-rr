@@ -157,3 +157,9 @@ FM_LIB_BUILD_MT6627 := yes
 FM_LIB_BUILD_MT6628 := yes
 FM_LIB_BUILD_MT6630 := yes
 
+# Release tools
+TARGET_RELEASETOOLS_EXTENSIONS := device/Lenovo/S650_ROW/releasetools
+
+# Include Open GApps
+INCLUDE_OPEN_GAPPS := true
+
